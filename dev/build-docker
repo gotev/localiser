@@ -1,0 +1,12 @@
+#!/bin/bash
+. config
+curdir=$(pwd)
+
+cd ../localiser-ui/
+docker build . -t gotev/localiser-ui -t "gotev/localiser-ui:${version}"
+
+cd "$curdir"
+
+cd ../localiser-generator/
+docker build . -t gotev/localiser-generator -t "gotev/localiser-generator:${version}"
+

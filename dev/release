@@ -1,0 +1,4 @@
+#!/bin/bash -e
+docker login 
+docker push gotev/localiser-ui
+docker push gotev/localiser-generator

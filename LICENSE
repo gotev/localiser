@@ -1,0 +1,4 @@
+Localiser is comprised of three different parts. Each one has a different license because it serves a different purpose.
+* `Localiser UI` is licensed under the GNU Affero General Public License version 3 (AGPLv3). Please find the attached full license in `localiser-ui` directory.
+* `Localiser Generator` is licensed under the General Public License version 3 (GPLv3). Please find the attached full license in `localiser-generator` directory.
+* `Generated Android and iOS libraries` are licensed under the Unlicense <http://unlicense.org/>. Please find the the attached full license in your auto-generated libraries directory

@@ -1,0 +1,10 @@
+{
+  "feature_2": {
+    "title": "test title feature 2"
+  },
+  "feature1": {
+    "test1": "Example string with placeholder {{name}}",
+    "test2": "test TBD with special ' \" @ ? < & characters",
+    "test3": "test 3 string"
+  }
+}

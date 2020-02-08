@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -rf generated/
+source ../localiser-generator/venv/bin/activate
+python3 ../localiser-generator/localiser-generator.py ../localiser-ui/db/db.sqlite3 "TestApp" "1.0" ./generated

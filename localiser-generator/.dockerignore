@@ -1,0 +1,7 @@
+.git
+.gitignore
+README.md
+db.sqlite3
+.DS_Store
+Dockerfile
+venv/

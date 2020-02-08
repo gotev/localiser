@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature1_test1">Example string with placeholder ${name}</string>
+    <string name="feature1_test2">test TBD with special \' \" \@ \? &lt; &amp; characters</string>
+    <string name="feature1_test3">test 3 string</string>
+</resources>

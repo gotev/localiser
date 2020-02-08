@@ -1,0 +1,19 @@
+#!/bin/bash -e
+rm -rf *.zip
+rm -rf Carthage
+xcodegen generate
+carthage build --archive
+
+if [ "x$1" == "xgithub-release" ]
+then
+  VERSION=$(cat project.yml | grep CFBundleShortVersionString | awk '{print $2}' | tr '"' '\n' | head -n 2 | tail -n 1)
+
+  echo "Creating GitHub release $VERSION"
+
+  git add .
+  git commit -m "release $VERSION"
+  git push
+
+  hub release create -a {{ projectName }}StringsSDK.framework.zip -m "release $VERSION" "$VERSION"
+
+fi

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+ADMIN_USER="admin"
+ADMIN_PASS="admin"
+ADMIN_MAIL="admin@admin.com"
+
+django="python3 manage.py"
+
+if [ ! -f db/db.sqlite3 ]
+then
+  echo "no DB exists, creating it"
+  $django migrate
+  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${ADMIN_USER}', '${ADMIN_MAIL}', '${ADMIN_PASS}')" | $django shell
+else
+  $django migrate
+  $django populate_history --auto
+fi
+
+$django runserver 0.0.0.0:8000

@@ -1,0 +1,42 @@
+ext {
+    // used for local maven repository
+    mavRepoInternalUrl = {% if projectInternalMavenRepo is not none %}"{{ projectInternalMavenRepo }}"{% else %}System.getenv('LOCAL_MAVEN_URL'){% endif %}
+
+    // used for nexus maven repository
+    mavRepoRemoteUrl = {% if projectNexusMavenRepo is not none %}"{{ projectNexusMavenRepo }}"{% else %}System.getenv('NEXUS_MAVEN_URL'){% endif %}
+
+    // used only for bintray publishing
+    // e.g. URL of where this is committed: https://github.com/YOUR_USERNAME/REPOSITORY_NAME
+    github_username = 'YOUR_USERNAME' //TODO: edit this
+    github_repository_name = 'REPOSITORY_NAME' //TODO: edit this
+    bintray_project_name = '{{ moduleName }}'
+
+    maintainer = '{{ projectOrganization|replace("'", "\\'") }}'
+
+    library_description = '{{ projectName }} strings library'
+    library_keywords = ['{{ projectName|trim|lower }}', '{{ projectShortIdentifier }}', 'string', 'library', 'android']
+    library_project_group = '{{ projectGroup }}'
+    library_licenses = ["Unlicense"]
+    library_licenses_url = 'https://unlicense.org/'
+    library_version = '{{ projectVersion }}'
+    version_code = 1
+    min_sdk = {{ projectAndroidMinSdk }}
+    target_sdk = 28
+
+    // Gradle classpath dependencies versions
+    kotlin_version = '1.3.31'
+    gradle_version = '3.4.1'
+    gradle_versions_plugin_version = '0.20.0'
+    bintray_plugin_version = '1.7'
+
+    // Library and app testing dependencies versions
+    junit_version = '4.12'
+    androidx_test_core_version = '1.2.0'
+    androidx_test_runner_version = '1.2.0'
+    androidx_test_rules_version = '1.2.0'
+    androidx_test_ext_junit_version = '1.1.1'
+    androidx_test_ext_truth_version = '1.2.0'
+    truth_version = '0.45'
+    androidx_test_espresso_version = '3.2.0'
+    androidx_appcompat_version = '1.0.2'
+}

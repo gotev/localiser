@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+{% for translatedKey in translatedKeys %}
+    <string name="{{ keyPrefix }}{{ translatedKey.0|trim|replace(" ", "_")|replace("-", "_") }}">{{ translatedKey.1|trim|replace("'", "\\'")|replace("&", "&amp;")|replace("<", "&lt;")|replace("@", "\\@")|replace("?", "\\?")|replace("\"", "\\\"") }}</string>
+{% endfor %}
+</resources>

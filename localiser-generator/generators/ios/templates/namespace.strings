@@ -1,0 +1,3 @@
+{% for translatedKey in translatedKeys %}
+"{{ translatedKey.0|trim }}" = "{{ translatedKey.1|trim|replace("\"", "\\\"") }}";
+{% endfor %}

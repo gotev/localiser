@@ -1,0 +1,15 @@
+#!/bin/bash
+curdir=$(pwd)
+
+cd ../localiser-generator/
+rm -rf venv
+virtualenv -p python3 venv
+/bin/bash -c "source venv/bin/activate && pip3 install -r requirements.txt && deactivate"
+
+cd "$curdir"
+
+cd ../localiser-ui/
+rm -rf venv
+virtualenv -p python3 venv
+/bin/bash -c "source venv/bin/activate && pip3 install -r requirements.txt && deactivate"
+
