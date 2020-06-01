@@ -9,6 +9,7 @@ virtualenv -p python3 venv
 cd "$curdir"
 
 cd ../localiser-ui/
+mkdir -p db
 rm -rf venv
 virtualenv -p python3 venv
 /bin/bash -c "source venv/bin/activate && pip3 install -r requirements.txt && deactivate"
