@@ -39,7 +39,7 @@ Ensure your docker is running. From a terminal, execute:
 docker pull gotev/localiser-ui && docker pull gotev/localiser-generator
 ```
 
-Add this in your `~/.bash_profile`:
+Add this in your (`~/.bash_profile` if using bash) or (`~/.zshrc` if using zsh):
 
 ```
 # Localiser aliases
@@ -47,7 +47,7 @@ alias localiser='docker run -t -i -v $(PWD):/localiser-ui/db -p 8000:8000 gotev/
 alias localiser-generator='docker run -ti --rm -v $(PWD)/generated:/localiser-generator/generated -v $(PWD)/db.sqlite3:/localiser-generator/db.sqlite3 gotev/localiser-generator'
 ```
 
-save and exit, then run `source ~/.bash_profile` and you're done!
+save and exit, then run `source ~/.bash_profile` or `source ~/.zshrc` and you're done!
 
 ### Localiser UI
 * simply navigate to the directory containing your `db.sqlite3` and run:
