@@ -14,6 +14,16 @@ First of all, I assume you are working on a macOS. If you are on a different OS,
 ## Getting started
 To not mess up with your own system python packages, both `localiser-ui` and `localiser-generator` are developed in separated virtual environments. 
 
+### Prerequisites
+You need to have both python3 and virtualenv installed. On a macOS, you can install them with brew and pip3:
+
+```
+brew install python3
+pip3 install virtualenv
+```
+
+### Init
+
 Run `./init` to automatically setup the separated virtual environments for both `localiser-ui` and `localiser-generator`
 
 ## Run
