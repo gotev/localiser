@@ -1,5 +1,5 @@
 asgiref==3.2.3
-Django==3.0.3
+Django==3.0.7
 django-simple-history==2.8.0
 pytz==2019.1
 six==1.12.0
