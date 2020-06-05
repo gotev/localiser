@@ -1,4 +1,4 @@
-asgiref==3.2.3
+asgiref==3.2.7
 Django==3.0.7
 django-simple-history==2.8.0
 pytz==2019.1
