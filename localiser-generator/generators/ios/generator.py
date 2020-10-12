@@ -26,7 +26,6 @@ from generators.common import utils
 
 
 class IosGenerator(SeparatedNamespacesGenerator):
-
     def _sanitize_namespace_name(self, name: str):
         filtered = utils.filter_chars_numbers(name)
         return filtered[:1].upper() + filtered[1:]
@@ -35,7 +34,7 @@ class IosGenerator(SeparatedNamespacesGenerator):
         return value.strip().replace('"', '\\"')
 
     def _get_supporting_files_dir(self, project_output_dir: str):
-        outputDir = os.path.join(project_output_dir, 'LocaliserExtensions')
+        outputDir = os.path.join(project_output_dir, 'Sources', 'LocaliserExtensions')
         utils.make_dir(outputDir)
         return outputDir
 
@@ -57,7 +56,7 @@ class IosGenerator(SeparatedNamespacesGenerator):
         return 'ios'
 
     def get_localisation_directory_base_path(self, project_name: str, project_short_identifier: str):
-        return ''
+        return os.path.join('Sources', 'Resources')
 
     def get_localisation_directory_name(self, slug: str, default_slug: str):
         if slug == default_slug:
@@ -106,7 +105,7 @@ class IosGenerator(SeparatedNamespacesGenerator):
         self._copy_raw_file(
             environment=arguments.environment,
             template_name='HTMLString.swift',
-            destination=os.path.join(arguments.project_output_dir, 'HTMLString.swift'),
+            destination=os.path.join(arguments.project_output_dir, 'Sources', 'HTMLString.swift'),
         )
 
         self._copy_raw_file(
@@ -127,6 +126,16 @@ class IosGenerator(SeparatedNamespacesGenerator):
                     projectVersion=arguments.project_version,
                     projectLanguage=arguments.project_language,
                     deploymentTarget=arguments.project_ios_deployment_target
+                )
+            )
+
+        outputFile = os.path.join(arguments.project_output_dir, 'Package.swift')
+
+        with open(outputFile, 'w') as file:
+            template = arguments.environment.get_template('Package.swift')
+            file.write(
+                template.render(
+                    projectPackageName=arguments.project_name + "StringsSDK"
                 )
             )
 
