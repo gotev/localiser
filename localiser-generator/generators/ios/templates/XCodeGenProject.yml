@@ -19,4 +19,4 @@ targetTemplates:
         CFBundleShortVersionString: "{{ projectVersion }}"
     scheme: {}
     sources:
-      - .
+      - Sources
