@@ -114,28 +114,13 @@ class IosGenerator(SeparatedNamespacesGenerator):
             destination=os.path.join(arguments.project_output_dir, '.gitignore'),
         )
 
-        outputFile = os.path.join(arguments.project_output_dir, 'project.yml')
-
-        with open(outputFile, 'w') as file:
-            template = arguments.environment.get_template('XCodeGenProject.yml')
-            file.write(
-                template.render(
-                    projectName=arguments.project_name,
-                    projectShortIdentifier=arguments.project_short_identifier,
-                    projectPackage=arguments.project_package,
-                    projectVersion=arguments.project_version,
-                    projectLanguage=arguments.project_language,
-                    deploymentTarget=arguments.project_ios_deployment_target
-                )
-            )
-
         outputFile = os.path.join(arguments.project_output_dir, 'Package.swift')
 
         with open(outputFile, 'w') as file:
             template = arguments.environment.get_template('Package.swift')
             file.write(
                 template.render(
-                    projectPackageName=arguments.project_name + "StringsSDK"
+                    projectPackageName=arguments.project_name + "Strings"
                 )
             )
 
@@ -146,6 +131,7 @@ class IosGenerator(SeparatedNamespacesGenerator):
             file.write(
                 template.render(
                     projectName=arguments.project_name,
+                    projectPackageName=arguments.project_name + "Strings",
                     projectShortIdentifier=arguments.project_short_identifier
                 )
             )
@@ -160,18 +146,6 @@ class IosGenerator(SeparatedNamespacesGenerator):
                     year=time.strftime("%Y")
                 )
             )
-
-        outputFile = os.path.join(arguments.project_output_dir, 'build')
-
-        with open(outputFile, 'w') as file:
-            template = arguments.environment.get_template('build')
-            file.write(
-                template.render(
-                    projectName=arguments.project_name
-                )
-            )
-
-        utils.make_executable(outputFile)
 
     def generate_namespace_supporting_files(self, arguments: NamespaceSupportingFilesArguments):
         projectNamespace = self._sanitize_namespace_name(arguments.namespace_name)
