@@ -2,8 +2,8 @@
 // DO NOT EDIT
 import Foundation
 
-public extension String.{{ projectShortIdentifier|capitalize }} {
-    struct {{ projectNamespace }} {
+extension String.{{ projectShortIdentifier|capitalize }} {
+    public struct {{ projectNamespace }} {
     {% for translationFunction in translationFunctions %}
 
         {% if translationFunction['localisedKeyComment'] is not none %}
@@ -12,10 +12,10 @@ public extension String.{{ projectShortIdentifier|capitalize }} {
         {% endfor %}
         {% endif %}
         public static func {{ translationFunction['name'] }}({{ translationFunction['parameters'] }}) -> {% if translationFunction['localisedKeyValueContainsHTML'] %}HTMLString{% else %}String{% endif %} {
-            return NSLocalizedString("{{ translationFunction['localisedKey'] }}",
-                                     tableName: "{{ projectNamespace }}",
-                                     bundle: String.{{ projectShortIdentifier }}StringsBundle,
-                                     comment: "{{ translationFunction['localisedKeyValue'] }}")
+            NSLocalizedString("{{ translationFunction['localisedKey'] }}",
+                              tableName: "{{ projectNamespace }}",
+                              bundle: Bundle.module,
+                              comment: "{{ translationFunction['localisedKeyValue'] }}")
                 {% for placeholder in translationFunction['placeholders'] %}
                 .replacingOccurrences(of: "{{ placeholder['placeholder'] }}", with: "\({{ placeholder['variableName'] }})")
                 {% endfor %}
@@ -26,5 +26,5 @@ public extension String.{{ projectShortIdentifier|capitalize }} {
     {% endfor %}
     }
 
-    static var {{ projectNamespace|lower }}: {{ projectNamespace }}.Type { return {{ projectNamespace }}.self }
+    public static var {{ projectNamespace|lower }}: {{ projectNamespace }}.Type { {{ projectNamespace }}.self }
 }

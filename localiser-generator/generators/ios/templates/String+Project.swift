@@ -2,12 +2,10 @@
 // DO NOT EDIT
 import Foundation
 
-public extension String {
-    static var {{ projectShortIdentifier }}: {{ projectShortIdentifier|capitalize }}.Type {
-        return {{ projectShortIdentifier|capitalize }}.self
+extension String {
+    public static var {{ projectShortIdentifier }}: {{ projectShortIdentifier|capitalize }}.Type {
+        {{ projectShortIdentifier|capitalize }}.self
     }
 
-    struct {{ projectShortIdentifier|capitalize }} {}
-    private class {{ projectShortIdentifier|capitalize }}Strings {}
-    static let {{ projectShortIdentifier }}StringsBundle = Bundle(for: {{ projectShortIdentifier|capitalize }}Strings.self)
+    public struct {{ projectShortIdentifier|capitalize }} {}
 }
