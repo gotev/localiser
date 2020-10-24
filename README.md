@@ -27,7 +27,7 @@ Look the [example](example) to see what you will get.
 * Jinja2
 * Django
 * Docker
-* Xcodegen
+* Swift Package Manager
 * Gradle
 
 ## Getting Started

@@ -12,12 +12,12 @@ public struct HTMLString: ExpressibleByStringLiteral, CustomStringConvertible {
     }
 
     public var description: String {
-        return value
+        value
     }
 }
 
 extension String {
     var asHTMLString: HTMLString {
-        return HTMLString(stringLiteral: self)
+        HTMLString(stringLiteral: self)
     }
 }
