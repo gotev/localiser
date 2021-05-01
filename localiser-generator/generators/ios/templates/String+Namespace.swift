@@ -14,7 +14,7 @@ extension String.{{ projectShortIdentifier|capitalize }} {
         public static func {{ translationFunction['name'] }}({{ translationFunction['parameters'] }}) -> {% if translationFunction['localisedKeyValueContainsHTML'] %}HTMLString{% else %}String{% endif %} {
             NSLocalizedString("{{ translationFunction['localisedKey'] }}",
                               tableName: "{{ projectNamespace }}",
-                              bundle: Bundle.module,
+                              bundle: Bundle.overrideModule,
                               comment: "{{ translationFunction['localisedKeyValue'] }}")
                 {% for placeholder in translationFunction['placeholders'] %}
                 .replacingOccurrences(of: "{{ placeholder['placeholder'] }}", with: "\({{ placeholder['variableName'] }})")

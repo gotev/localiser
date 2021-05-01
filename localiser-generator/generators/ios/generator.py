@@ -98,6 +98,7 @@ class IosGenerator(SeparatedNamespacesGenerator):
             file.write(
                 template.render(
                     projectName=arguments.project_name,
+                    projectPackageName=arguments.project_name + "Strings",
                     projectShortIdentifier=arguments.project_short_identifier
                 )
             )
