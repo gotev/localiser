@@ -1,4 +1,7 @@
 #!/bin/bash -e
-docker login 
+. config
+docker login
 docker push gotev/localiser-ui
+docker push "gotev/localiser-ui:$version"
 docker push gotev/localiser-generator
+docker push "gotev/localiser-generator:$version"
