@@ -11,6 +11,9 @@ class {{ projectShortIdentifier|capitalize }}{{ projectNamespace|capitalize }}St
     {{ commentLine }}
     {% endfor %}
     {% endif %}
+    /* String value:
+        {{ translationFunction['localisedKeyValue'] }}
+    */
     fun {{ translationFunction['name'] }}({{ translationFunction['parameters'] }}) =
         context.getString(R.string.{{ translationFunction['localisedKey'] }})
             {% for placeholder in translationFunction['placeholders'] %}
