@@ -26,6 +26,7 @@ extension Foundation.Bundle {
             Bundle.main.resourceURL,
             /* Bundle should be present here when the package is linked into a framework. */
             Bundle(for: OverrideBundleFinder.self).resourceURL,
+            Bundle(for: OverrideBundleFinder.self).resourceURL?.deletingLastPathComponent(),
             /* For command-line tools. */
             Bundle.main.bundleURL,
             /* Bundle should be present here when running previews from a different package (this is the path to "…/Debug-iphonesimulator/"). */
