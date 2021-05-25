@@ -1,7 +1,7 @@
 asgiref==3.3.4
 Django==3.2
 django-simple-history==3.0.0
-protobuf==3.14.0
+protobuf==3.17.1
 pytz==2021.1
 six==1.15.0
 sqlparse==0.4.1
