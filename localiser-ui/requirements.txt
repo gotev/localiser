@@ -1,4 +1,4 @@
-asgiref==3.3.4
+asgiref==3.4.1
 Django==3.2
 django-simple-history==3.0.0
 protobuf==3.14.0
