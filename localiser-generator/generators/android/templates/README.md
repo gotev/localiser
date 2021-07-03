@@ -61,18 +61,12 @@ val greeting = String.{{ projectShortIdentifier }}.homepage.greeting(name = "Alf
 * [Java 8+](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Android Studio](https://developer.android.com/studio)
 * Have `ANDROID_SDK_ROOT` in your environment variables.
-  * On macOS add `export ANDROID_SDK_ROOT=/path/to/android/sdk` to your `~/.bash_profile` and then `source ~/.bash_profile`
+  * On macOS add `export ANDROID_SDK_ROOT=/path/to/android/sdk` to your `~/.zshrc` and then `source ~/.zshrc`
 
 ### Generation
 It's recommended to deploy this strings SDK to either:
-* Bintray, if you want to make it openly available
 * Local maven repository, for local development
 * Your Nexus (or Artifactory) server, for internal usage in an organization
-
-#### Bintray
-* Commit all the sources to a GitHub repository
-* Edit `manifest.gradle` and fill in the GitHub information requested. Commit and push
-* Execute `./gradlew clean build bintrayUpload`
 
 #### Local Maven repository
 {% if projectInternalMavenRepo is none %}* Setup the environment variable `LOCAL_MAVEN_URL` to point to your local maven repository{% endif %}
@@ -90,31 +84,4 @@ Execute:
 Execute:
 ```
 ./gradlew clean build publish -PmavPublishToRemoteRepo=true -PmavRemoteRepoUser=$NEXUS_USER -PmavRemoteRepoPassword=$NEXUS_PASSWORD
-```
-
-## Maintenance
-Execute: `./gradlew dependencyUpdates` to check for gradle dependency updates. You will see a report like this:
-
-```
-The following dependencies are using the latest milestone version:
- - androidx.test:core:1.2.0
- - androidx.test:rules:1.2.0
- - androidx.test:runner:1.2.0
- - androidx.test.espresso:espresso-core:3.2.0
- - androidx.test.ext:junit:1.1.1
- - androidx.test.ext:truth:1.2.0
- - com.google.truth:truth:0.45
- - org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31
- - org.jetbrains.kotlin:kotlin-test-junit:1.3.31
-
-The following dependencies have later milestone versions:
- - androidx.appcompat:appcompat [1.0.2 -> 1.1.0-beta01]
-     http://developer.android.com/tools/extras/support-library.html
- - com.android.tools.lint:lint-gradle [26.4.1 -> 26.6.0-alpha03]
-     https://developer.android.com/studio
- - junit:junit [4.12 -> 4.13-beta-3]
-     http://junit.org
-
-Gradle updates:
- - Gradle: [5.4.1 -> 5.5-rc-2]
 ```
