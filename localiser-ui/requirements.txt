@@ -4,4 +4,4 @@ django-simple-history==3.2.0
 protobuf==4.21.9
 pytz==2021.1
 six==1.16.0
-sqlparse==0.4.1
+sqlparse==0.4.3
