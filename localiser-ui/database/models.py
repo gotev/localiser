@@ -116,7 +116,7 @@ class LocalisedKey(models.Model):
 class TranslatedKey(models.Model):
     localised_key = models.ForeignKey(LocalisedKey, on_delete=models.CASCADE)
     slug = models.ForeignKey(Locale, on_delete=models.CASCADE)
-    value = models.CharField(max_length=500)
+    value = models.CharField(max_length=2048)
     temporary = models.BooleanField(default=False,
                                     help_text='To speed up development and have the possibility to better '
                                               'define a translation later, you can mark a translated key as '
